@@ -1,0 +1,79 @@
+.app{
+  width: 85%;
+  margin: auto;
+}
+
+
+
+.heading{
+  text-align: center;
+  margin-bottom:64px;
+  margin-top: 20px;
+  font-weight: 500;
+  
+}
+
+.inputBox{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.inputBox input{
+  width: 73%;
+  padding: 10px 0px;
+  padding-left: 25px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  background-color: #5C5C5C;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.submitBtn{
+  width: 170px;
+  background-color: #C620A7;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 0px;
+  cursor: pointer;
+  font-family: 'Poppins';
+  font-weight: 500;
+  color: white;
+}
+
+.filters{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 30%;
+  font-family: 'Poppins';
+  font-weight: 500;
+}
+
+.filters button{
+padding: 10px 30px;
+cursor: pointer;
+
+
+}
+
+.allTasks{
+  margin-top: 40px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 410px 410px 410px ;
+  grid-row-gap: 50px;
+  grid-column-gap: 40px;
+  margin-bottom: 50px;
+  
+}
+
+
