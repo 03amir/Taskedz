@@ -24,7 +24,12 @@
     position: absolute;
 }
 
-
+.upper{
+    padding: 0 2rem 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .readBox{
     position: absolute;
     top: 19%;
@@ -36,6 +41,9 @@
     align-items: center;
     justify-content: center;
 }
+.editIcon{
+    cursor: pointer;
+}
 
 .readMark{
 
@@ -43,7 +51,7 @@
 }
 
 .taskTittle{
-    padding-left: 25px;
+    /* padding-left: 25px; */
 }
 
 

@@ -10,6 +10,8 @@ const baseUrl = "https://taskedz.herokuapp.com";
 function App() {
   const [allTodos, setAllTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
+  const [editFlag, setEditFlag] = useState(false);
+  const [toBeEditedId, setToBeEditedId] = useState("");
 
   async function getAllTodos() {
     const res = await Axios.get(baseUrl);
@@ -57,6 +59,31 @@ function App() {
     getAllTodos();
   }
 
+  const actiateInputForEditing = async(id, currentValue) => {
+    setNewTodo(currentValue);
+    setToBeEditedId(id);
+    setEditFlag(true);
+    toast.success("Pasted to input field, Edit there!")
+  }
+
+  const editTodo = async() => {
+    try{
+      const resp = await Axios.post(
+        `${baseUrl}/edit`, {
+          newValue:newTodo,
+          toEditId:toBeEditedId
+        }
+      );
+      getAllTodos();
+      toast.success("Task Updated");
+    }catch(error){
+
+    }
+    setNewTodo("");
+    setEditFlag(false);
+    setToBeEditedId("");
+  }
+
   return (
     <div className="app">
       <h1 className="heading">To-Do List</h1>
@@ -71,8 +98,8 @@ function App() {
           }}
           placeholder="Enter the task here"
         />
-        <button onClick={addNewTodo} className="submitBtn">
-          Submit
+        <button onClick={editFlag ? editTodo : addNewTodo} className="submitBtn">
+          {editFlag ? "Edit" : "Submit"}
         </button>
       </div>
 
@@ -87,6 +114,7 @@ function App() {
               index={index + 1}
               deleteTodo={deleteTodo}
               markAsRead={markAsRead}
+              actiateInputForEditing = {actiateInputForEditing}
             />
           );
         }):
