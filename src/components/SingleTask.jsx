@@ -1,8 +1,9 @@
 import "./singleTask.css";
 import React from "react";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import EditIcon from '@mui/icons-material/Edit';
 
-function SingleTask({ todo, deleteTodo, markAsRead, index }) {
+function SingleTask({ todo, deleteTodo, markAsRead, index , actiateInputForEditing}) {
   return (
     <div className={todo.completed ? "completedTaskCard" : "taskCard"}>
       <p className="index">{index}.</p>
@@ -13,8 +14,10 @@ function SingleTask({ todo, deleteTodo, markAsRead, index }) {
         </div>
       ) : null}
 
-      <p className="taskTittle">{todo.body}</p>
-
+      <div className="upper">
+        <p className="taskTittle">{todo.body}</p>
+        <EditIcon className="editIcon" onClick = {() => {actiateInputForEditing(todo._id, todo.body)}}></EditIcon>
+      </div>
       <hr />
 
       <div className="buttons">
