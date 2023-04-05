@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SingleTask from "./components/SingleTask";
 import { ToastContainer, toast } from "react-toastify";
 
-const baseUrl = "https://taskedz.herokuapp.com";
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function App() {
   const [allTodos, setAllTodos] = useState([]);
